@@ -16,8 +16,8 @@ function solution(arr) {
             }
         }
     }
-    answer.push(sum);
-    answer.push(min);
+    answer.push(sum); // push : 맨 뒤에 추가 / pop : 맨 뒤 제거
+    answer.push(min); // unshift : 맨 앞에 추가 (성능느림) / shift : 맨 앞 제거
 
     return answer;
 }

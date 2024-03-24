@@ -3,7 +3,10 @@
 
 function solution(s, t){
     let answer = 0;
-    
+
+    // 1) for of 문: iterable 순회 전용 (iterable에는 String, Array, Map, Set, DOM컬렉션(HTMLColletion, NodeList) 등)
+    // 2) for in 문: 객체의 프로퍼티 키 열거 전용
+
     for (let x of s) { // for in 문은 안됨!
         if (x == t) answer++;
     }
@@ -11,5 +14,5 @@ function solution(s, t){
     return answer;
 }
 
-let str="COMPUTERPROGRAMMING";
+let str = "COMPUTERPROGRAMMING";
 console.log(solution(str, 'R'));
