@@ -7,7 +7,8 @@ function solution(k, arr) {
     let answer = 0;
 
     // [12, 15, 11, 20, 25, 10, 20, 19, 13, 15]
-    // i-k      i
+    //          i
+    // i-k          i
 
     // 초기 윈도우 설정
     let sum = 0;
@@ -15,7 +16,7 @@ function solution(k, arr) {
         sum += arr[i];
     }
     answer = sum;
-    
+
     for (let i = k; i < arr.length; i++) {
         sum += arr[i] - arr[i - k];
         answer = Math.max(answer, sum);
