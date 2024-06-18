@@ -29,7 +29,7 @@
 // n: 정점 갯수, arr: 간선 정보
 function solution(n, arr) {
     let answer = 0;
-    let graph = Array.from(Array(n + 1), () => Array(n + 1).fill(0)); // 인접행렬을 만들 2차원 배열
+    let graph = Array.from(Array(n + 1), () => Array(n + 1).fill(0)); // 인접행렬을 만들 2차원 배열 -> 인덱스 1번부터 사용 (0번 비워둠)
     let ch = Array.from({ length: n + 1 }, () => 0); // 행과 열의 개수를 n+1으로 설정 -> 인덱스 1번부터 사용 (0번 비워둠)
     path = []; // 테스트 코드 path(경로)
     
