@@ -12,10 +12,26 @@ function solution(board) {
     let dy = [0, 1, 0, -1]; // 열 (dy: direction y)
 
     function DFS(x, y) {
-
+        if (x == 6 && y == 6) { // 종착점 도착
+            answer++;
+        } else {
+            for (let i = 0; i < 4; i++) { // (12시, 3시, 6시, 9시) -> 4개 방향 탐색
+                let nx = x + dx[i]; // nx는 행의 좌표
+                let ny = x + dy[i]; // ny는 행의 좌표
+                // nx >= 0 : 좌표가 0보다 작아지면, 격자판의 범위를 벗어나게 됨 (격자판의 범위 안에서만 탐색하도록 함)
+                // nx < n : 좌표가 격자판의 크기 n보다 작은지를 확인 (격자판의 범위 안에서만 탐색하도록 함)
+                // board[nx][ny] == 0 : 통로인지 탐색
+                if (nx >= 0 && ny >= 0 && nx < 6 && ny < 6 && board[nx][ny] === 0) {
+                    board[nx][ny] = 1; // 방문 표시 (벽으로 변경)
+                    DFS(nx, ny);ㄴ
+                    board[nx][ny] = 0; // 백트래킹: 이전 상태로 되돌림
+                }
+            }
+        }
     }
 
-    DFS(0, 0);
+    board[0][0] = 1;; // 출발점 방문 표시 -> 잊지않기!!
+    DFS(0, 0); // 출발점
     return answer;
 }
 
